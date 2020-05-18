@@ -1,0 +1,117 @@
+▶ bpython
+bpython version 0.18 on top of Python 3.7.7 /usr/local/opt/python/bin/python3.7
+>>> 
+>>> 
+>>> 
+>>> 
+>>> d = {}
+>>> d.setdefault('not_existing_key', 42)
+42
+>>> d
+{'not_existing_key': 42}
+>>> d['existing_value'] = 'hello'
+>>> d
+{'not_existing_key': 42, 'existing_value': 'hello'}
+>>> d.setdefault('existing_value', 'Hay')
+'hello'
+>>> d
+{'not_existing_key': 42, 'existing_value': 'hello'}
+>>> d1 = {x:x**2 for x in range(5)}
+>>> d2 = {x:x**2 for x in range(5, 10)}
+>>> d1
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+>>> d2
+{5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+>>> d3 = d1.copy()
+>>> d3.update(d2)
+>>> d3
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+>>> {**d1, **d2} 
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+>>> d4 = d1.copy()
+>>> dict(d4, **d2)
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    dict(d4, **d2)
+TypeError: keywords must be strings
+>>> dict({}, **{'key': 42})
+{'key': 42}
+>>> d1 = {'1level': {'2level': []}}
+>>> d2 = d1.copy()
+>>> d2
+{'1level': {'2level': []}}
+>>> d2['1level']['42'] = 42
+>>> d1
+{'1level': {'2level': [], '42': 42}}
+>>> import copy
+>>> 
+>>> d3 = copy.deepcopy(d2)
+>>> d3['1level']['42'] = -42
+>>> d3
+{'1level': {'2level': [], '42': -42}}
+>>> d2
+{'1level': {'2level': [], '42': 42}}
+>>> l = list(range(10))
+>>> l
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> list(map(lambda x: x**2, l))
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> list(map(lambda x: x**2 if x%2 else x, l))
+[0, 1, 2, 9, 4, 25, 6, 49, 8, 81]
+>>> def foo(x):
+...     return x**2 if x%2 else x
+... 
+>>> from functools import reduce
+>>> 
+>>> l
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> sum(l)
+45
+>>> reduce(lambda acc, elem: acc + elem, l, 0)
+45
+>>> filter(lambda elem: not elem % 2, l)
+<filter object at 0x10b5e8d50>
+>>> list(filter(lambda elem: not elem % 2, l))
+[0, 2, 4, 6, 8]
+>>> _
+[0, 2, 4, 6, 8]
+>>> for _ in range(5):
+...     print('hello')
+...     
+... 
+hello
+hello
+hello
+hello
+hello
+>>> d3
+{'1level': {'2level': [], '42': -42}}
+>>> t = (('Name', 'value'), ('Name2', 'value2'))
+>>> for name, _ in t:
+...     print(name)
+...     
+... 
+Name
+Name2
+>>> l
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> l2 = list(filter(lambda elem: not elem % 2, l))
+>>> l, l2
+([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 2, 4, 6, 8])
+>>> for elem in zip(l, l2):
+...     print(elem)
+...     
+... 
+(0, 0)
+(1, 2)
+(2, 4)
+(3, 6)
+(4, 8)
+>>> import uuid
+>>> 
+>>> uuid.uuid4().hex
+'a82b43512573465dbf622f036d914046'
+>>> 
+
+~/Documents/lits-13  master ✗                                                                                      14d9h ✖ ◒  
+▶ 
