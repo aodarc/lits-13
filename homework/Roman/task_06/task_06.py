@@ -9,5 +9,3 @@ def get_random_24bit_color():
     out_str = '#' + "{:02x}".format(red) + "{:02x}".format(green) + "{:02x}".format(blue)
     return out_str
 
-
-print(get_random_24bit_color())
